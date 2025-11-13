@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { useEffect, useState } from "react";
 import ApplePage from "@/components/subpages/ApplePage";
 import Win11Page from "@/components/subpages/Win11Page";
@@ -15,11 +15,30 @@ export default function Portfolio() {
   const [projectData, setProjectData] = useState<PortfolioItem[]>([]);
 
   return (
-    <div className="flex fixed top-0 w-[200vw] h-screen" style={{ left: -windowPos + 'px' }}>
-      <Win11Page windowToggle={windowToggle} setWindowPos={setWindowPos} setWindowToggle={setWindowToggle} projectData={projectData}/>
-      <ApplePage windowToggle={windowToggle} setWindowPos={setWindowPos} setWindowToggle={setWindowToggle} projectData={projectData}/>
+    <div
+      className="flex fixed top-0 w-[200vw] h-screen"
+      style={{ left: -windowPos + "px" }}
+    >
+      <Win11Page
+        windowToggle={windowToggle}
+        setWindowPos={setWindowPos}
+        setWindowToggle={setWindowToggle}
+        projectData={projectData}
+      />
+      <ApplePage
+        windowToggle={windowToggle}
+        setWindowPos={setWindowPos}
+        setWindowToggle={setWindowToggle}
+        projectData={projectData}
+      />
       <div className="fixed top-0 left-0 w-screen h-screen flex justify-center items-center bg-black animate-wiggle">
-        <img src='/Win11.png' alt='Win11' width={50} height={50} className="animate-win11" />
+        <img
+          src="/Win11.png"
+          alt="Win11"
+          width={50}
+          height={50}
+          className="animate-win11"
+        />
       </div>
     </div>
   );
