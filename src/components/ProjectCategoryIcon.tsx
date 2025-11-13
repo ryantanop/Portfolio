@@ -13,6 +13,6 @@ export default function ProjectCategoryIcon({ iconDefinition, title, onClick, se
         <div className='flex justify-center w-full'>
             <FontAwesomeIcon icon={iconDefinition} size="2x" />
         </div>
-        <p className='w-full text-center mt-[20px]'>All Projects</p>
+        <p className='w-full text-center mt-[20px]'>{title}</p>
     </div>
 }

@@ -5,11 +5,89 @@
   --foreground: #171717;
 }
 
+/* Scrollbar for Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: black;
+}
+
+::-webkit-scrollbar-thumb {
+  background: gray;
+  border-radius: 4px;
+  opacity: 0;
+  /* hidden by default */
+  transition: opacity 0.5s;
+  /* smooth fade */
+}
+
+/* Show scrollbar handle on hover */
+body:hover::-webkit-scrollbar-thumb {
+  opacity: 1;
+}
+
+/* Optional: hover on the thumb itself */
+::-webkit-scrollbar-thumb:hover {
+  background: lightgray;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --animate-wiggle: wiggle 3s linear forwards;
+
+  @keyframes wiggle {
+    0% {
+      opacity: 1;
+      visibility: show;
+    }
+
+    70% {
+      opacity: 1;
+      visibility: show;
+    }
+
+    100% {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  --animate-win11: win11 3s linear forwards;
+
+  @keyframes win11 {
+    0% {
+      opacity: 1;
+      visibility: show;
+    }
+
+    50% {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    100% {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  --animate-start1: start1 3100ms linear forwards;
+
+  @keyframes start1 {
+    0% {
+      transform: scale(1.2);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
 }
 
 @media (prefers-color-scheme: dark) {
