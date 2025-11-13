@@ -15,11 +15,11 @@ export default function StartupMenu({ open, setClose }: StartupMenuProps) {
         <div className="flex fixed w-screen h-screen left-0 top-0 bg-black opacity-50" onClick={(e) => { e.target == e.currentTarget ? setClose() : null }} />
         <div className="transition-all duration-300 absolute w-[470px] bottom-[70px] rounded-xl backdrop-blur-lg border border-gray-600 overflow-hidden" style={{ height: expanded ? '500px' : '200px' }}>
             <div className="flex w-full bg-black/20 h-[150px]">
-                <FileIcon iconUrl='/Projects.png' iconName='Projects' onClick={() => { }} />
-                <FileIcon iconUrl='/GitHub.png' iconName='GitHub' onClick={() => { }} />
-                <FileIcon iconUrl='/LinkedIn.png' iconName='LinkedIn' onClick={() => { }} />
-                <a href="/Resume.pdf" target="_blank" className="inline-block"><FileIcon iconUrl='/Resume.png' iconName='Resume' onClick={() => { }} /></a>
-                <FileIcon iconUrl='/Win11.png' iconName='Windows' onClick={() => { }} />
+                <FileIcon iconUrl='/Projects.png' iconName='Projects' onClick={() => { }}  invert={false}/>
+                <FileIcon iconUrl='/GitHub.png' iconName='GitHub' onClick={() => { }}  invert={false}/>
+                <FileIcon iconUrl='/LinkedIn.png' iconName='LinkedIn' onClick={() => { }}  invert={false}/>
+                <a href="/Resume.pdf" target="_blank" className="inline-block"><FileIcon iconUrl='/Resume.png' iconName='Resume' onClick={() => { }}  invert={false}/></a>
+                <FileIcon iconUrl='/Win11.png' iconName='Windows' onClick={() => { }}  invert={false}/>
             </div>
             <div className="w-full h-[3px] px-[10px]">
                 <div className="w-full h-full bg-gray-200"></div>
