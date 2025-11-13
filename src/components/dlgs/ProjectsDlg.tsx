@@ -3,8 +3,8 @@ import React, { use } from 'react';
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faFire, faMobile, faWebAwesome } from '@fortawesome/free-solid-svg-icons';
-import ProjectCategoryIcon from './ProjectCategoryIcon';
-import PortfolioItem from './PortfolioItem';
+import ProjectCategoryIcon from '../icons/ProjectCategoryIcon';
+import PortfolioItem from '../items/PortfolioItem';
 
 interface Project {
     id: string;

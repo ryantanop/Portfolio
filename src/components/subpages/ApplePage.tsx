@@ -1,5 +1,5 @@
-import FileIcon from "./FileIcon";
-import ProjectsDlg from "@/components/ProjectsDlg";
+import FileIcon from "../icons/FileIcon";
+import ProjectsDlg from "@/components/dlgs/ProjectsDlg";
 import { useState } from "react";
 
 type PortfolioItem = {

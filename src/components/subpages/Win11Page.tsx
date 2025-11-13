@@ -1,7 +1,7 @@
-import FileIcon from "./FileIcon";
-import ProjectsDlg from "@/components/ProjectsDlg";
+import FileIcon from "../icons/FileIcon";
+import ProjectsDlg from "@/components/dlgs/ProjectsDlg";
 import { useState } from "react";
-import StartupMenu from "./StartupMenu";
+import StartupMenu from "../dlgs/StartupMenu";
 
 type PortfolioItem = {
     id: string;

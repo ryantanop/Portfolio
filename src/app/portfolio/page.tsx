@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useState } from "react";
-import ApplePage from "@/components/ApplePage";
-import Win11Page from "@/components/Win11Page";
+import ApplePage from "@/components/subpages/ApplePage";
+import Win11Page from "@/components/subpages/Win11Page";
 
 type PortfolioItem = {
   id: string;
@@ -13,20 +13,6 @@ export default function Portfolio() {
   const [windowPos, setWindowPos] = useState(0);
   const [windowToggle, setWindowToggle] = useState(1);
   const [projectData, setProjectData] = useState<PortfolioItem[]>([]);
-
-  useEffect(() => {
-    fetch('/api/portfolio')
-      .then((res) =>
-        res.json()
-      )
-      .then((data) => {
-        setProjectData(data);
-        console.log(data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [])
 
   return (
     <div className="flex fixed top-0 w-[200vw] h-screen" style={{ left: -windowPos + 'px' }}>

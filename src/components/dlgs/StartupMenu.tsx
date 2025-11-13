@@ -1,6 +1,6 @@
 'use client'
 import { useState } from "react"
-import FileIcon from "./FileIcon"
+import FileIcon from "../icons/FileIcon"
 
 interface StartupMenuProps {
     open: boolean,
