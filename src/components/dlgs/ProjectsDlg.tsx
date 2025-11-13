@@ -1,7 +1,5 @@
 "use client";
-import React, { use } from "react";
 import { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faStar,
   faFire,
