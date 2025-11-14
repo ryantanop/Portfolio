@@ -104,11 +104,7 @@ export default function Win11Page({
           className="cursor-pointer mx-2"
         />
       </div>
-      <ProjectsDlg
-        show={showProjectDlg}
-        data={projectData}
-        setShow={setShowProjectDlg}
-      />
+      <ProjectsDlg show={showProjectDlg} setShow={setShowProjectDlg} />
       <StartupMenu
         open={showStartupMenu}
         setClose={() => setShowStartupMenu(false)}

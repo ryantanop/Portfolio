@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ApplePage from "@/components/subpages/ApplePage";
 import Win11Page from "@/components/subpages/Win11Page";
 

@@ -1,6 +1,6 @@
+import { useState } from "react";
 import FileIcon from "../icons/FileIcon";
 import ProjectsDlg from "@/components/dlgs/ProjectsDlg";
-import { useState } from "react";
 
 type PortfolioItem = {
   id: string;
@@ -111,11 +111,7 @@ export default function ApplePage({
           />
         </div>
       </div>
-      <ProjectsDlg
-        show={showProjectDlg}
-        data={projectData}
-        setShow={setShowProjectDlg}
-      />
+      <ProjectsDlg show={showProjectDlg} setShow={setShowProjectDlg} />
     </div>
   );
 }
