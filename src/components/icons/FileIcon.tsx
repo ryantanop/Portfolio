@@ -15,7 +15,7 @@ export default function FileIcon({
 }: FileIconProps) {
   return (
     <div className="w-20 h-24 mx-4 my-10">
-      <div className="flex w-full justify-center">
+      <div className="flex w-full h-[60px] justify-center">
         <img
           src={iconUrl}
           width={60}
