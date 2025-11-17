@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { use, useState } from "react";
 import FileIcon from "../icons/FileIcon";
-import ProjectsDlg from "@/components/dlgs/ProjectsDlg";
+import MacProjectsDlg from "@/components/dlgs/MacProjectsDlg";
+import AboutMe from "../dlgs/AboutMe";
+import ContactDlg from "../dlgs/ContactDlg";
 
 type PortfolioItem = {
   id: string;
@@ -22,6 +24,9 @@ export default function ApplePage({
   projectData,
 }: ApplePageProps) {
   const [showProjectDlg, setShowProjectDlg] = useState(false);
+  const [showAboutMe, setShowAboutMe] = useState(false);
+  const [showContactDlg, setShowContactDlg] = useState(false);
+  console.log(new Date().toLocaleTimeString());
 
   const ToggleWindow = () => {
     let intervalId = setInterval(() => {
@@ -40,10 +45,10 @@ export default function ApplePage({
     <div className="relative top-0 w-screen h-screen">
       <div className="absolute left-0 top-0 bg-[url('/AppleBackgroundImage.jpg')] bg-cover bg-center w-full h-full">
         <div className="flex fixed w-screen h-[25px] text-white font-bold">
-          <p className="mx-[10px] px-[5px] cursor-pointer rounded-sm hover:bg-white hover:text-black">
+          <p className="mx-[10px] px-[5px] cursor-pointer rounded-sm hover:bg-white hover:text-black" onClick={() => setShowAboutMe(true)}>
             About Me
           </p>
-          <p className="mx-[10px] px-[5px] cursor-pointer rounded-sm hover:bg-white hover:text-black">
+          <p className="mx-[10px] px-[5px] cursor-pointer rounded-sm hover:bg-white hover:text-black" onClick={() => setShowContactDlg(true)}>
             Contact
           </p>
           <p className="mx-[10px] px-[5px] cursor-pointer rounded-sm hover:bg-white hover:text-black" onClick={() => { setShowProjectDlg(true) }}>
@@ -95,32 +100,40 @@ export default function ApplePage({
       <div className="flex justify-center items-center absolute left-0 bottom-0 w-full h-[80px]">
         <div className="flex justify-center items-center p-[3px] rounded-lg backdrop-blur-lg border border-white">
           <img
-            src="/Mac.png"
+            src="/contacts.png"
             width={50}
             height={50}
             className="cursor-pointer mx-2"
+            onClick={() => {setShowContactDlg(true)}}
           />
-          <img
-            src="/MailBox.png"
-            width={50}
-            height={50}
-            className="cursor-pointer mx-2"
-          />
+          <a href="mailto:loi.nguyen.911124@gmail.com" target="_blank">
+            <img
+              src="/MacMail.png"
+              width={60}
+              height={60}
+              className="cursor-pointer mx-2"
+            />
+          </a>
           <img
             src="/Projects.png"
             width={50}
             height={50}
             className="cursor-pointer mx-2"
+            onClick={() => setShowProjectDlg(true)}
           />
-          <img
-            src="/Calendar.png"
-            width={50}
-            height={50}
-            className="cursor-pointer mx-2"
-          />
+          <a href="https://calendly.com/ryantanop/30min" target="_blank">
+            <img
+              src="/MacCal.png"
+              width={50}
+              height={50}
+              className="cursor-pointer mx-2"
+            />
+          </a>
         </div>
       </div>
-      <ProjectsDlg show={showProjectDlg} setShow={setShowProjectDlg} />
+      <MacProjectsDlg show={showProjectDlg} setShow={setShowProjectDlg} />
+      <AboutMe show={showAboutMe} setShow={setShowAboutMe} setShowProjects={setShowProjectDlg} />
+      <ContactDlg show={showContactDlg} setShow={setShowContactDlg} setAboutMe={setShowAboutMe} />
     </div>
   );
 }

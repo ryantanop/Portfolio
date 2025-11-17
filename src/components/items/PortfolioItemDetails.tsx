@@ -1,10 +1,10 @@
+'use client'
 import {
-  faStar,
-  faFire,
-  faMobile,
-  faEarth,
   faLanguage,
   faCalendar,
+  faBuilding,
+  faGlobe,
+  faFolder
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -26,11 +26,27 @@ interface PortfolioItemData {
 
 interface PortfolioItemDetailsProps {
   item: PortfolioItemData;
+  selectedImage: string;
+  setSelectedImage: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export default function PortfolioItemDetails({
   item,
+  selectedImage,
+  setSelectedImage
 }: PortfolioItemDetailsProps) {
+
+  if (selectedImage != '-1') {
+    return <div className="flex justify-center items-center w-full h-full">
+      <img
+        src={`/portfolio/${item.title}/${selectedImage}`}
+        width={1000}
+        height={1000}
+        className="rounded-[30px]"
+      />
+    </div>
+  }
+
   return (
     <div className="p-[20px] h-[800px] overflow-y-scroll my-[20px]">
       <div className="flex pb-[20px] border-b-[2px] border-white/10">
@@ -48,12 +64,12 @@ export default function PortfolioItemDetails({
       <div className="flex text-white text-white/50 text-[15px] py-[20px] border-b-[2px] border-white/10">
         <div className="w-1/4 text-center">
           <p className="font-bold mb-[10px]">Company</p>
-          <FontAwesomeIcon className="text-[40px]" icon={faCalendar} />
+          <FontAwesomeIcon className="text-[40px]" icon={faBuilding} />
           <p className="text-[13px] mt-[10px]">{item.client}</p>
         </div>
         <div className="w-1/4 text-center">
           <p className="font-bold mb-[10px]">Country</p>
-          <FontAwesomeIcon className="text-[40px]" icon={faCalendar} />
+          <FontAwesomeIcon className="text-[40px]" icon={faGlobe} />
           <p className="text-[13px] mt-[10px]">{item.country}</p>
         </div>
         <div className="w-1/4 text-center">
@@ -63,7 +79,7 @@ export default function PortfolioItemDetails({
         </div>
         <div className="w-1/4 text-center">
           <p className="font-bold mb-[10px]">Category</p>
-          <FontAwesomeIcon className="text-[40px]" icon={faCalendar} />
+          <FontAwesomeIcon className="text-[40px]" icon={faFolder} />
           <p className="text-[13px] mt-[10px]">{item.category}</p>
         </div>
       </div>
@@ -77,10 +93,12 @@ export default function PortfolioItemDetails({
         <img
           src={`/portfolio/${item.title}/First.png`}
           className="w-[500px] h-[300px] rounded-[50px] my-[40px] cursor-pointer"
+          onClick={() => setSelectedImage('First.png')}
         />
         <img
           src={`/portfolio/${item.title}/2.png`}
           className="w-[500px] h-[300px] rounded-[50px] my-[40px] cursor-pointer"
+          onClick={() => setSelectedImage('2.png')}
         />
       </div>
       <p className="text-white text-[18px] py-[20px] border-b-[2px] border-white/10">

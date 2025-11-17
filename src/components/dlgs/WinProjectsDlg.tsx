@@ -10,10 +10,11 @@ interface ProjectDlgProps {
   setShow: (show: boolean) => void;
 }
 
-export default function ProjectsDlg({ show, setShow }: ProjectDlgProps) {
+export default function WinProjectsDlg({ show, setShow }: ProjectDlgProps) {
   const [selectedCategory, setSelectedCategory] = useState(1);
   const [selectedItem, setSelectedItem] = useState(-1);
   const [loading, setLoading] = useState(false);
+  const [selectedImage, setSelectedImage] = useState('-1');
 
   useEffect(() => {
     if (show) {
@@ -43,6 +44,8 @@ export default function ProjectsDlg({ show, setShow }: ProjectDlgProps) {
               selectedItem={selectedItem}
               setSelectedItem={setSelectedItem}
               setShow={setShow}
+              setSelectedImage={setSelectedImage}
+              selectedImage={selectedImage}
             />
 
             {selectedItem === -1 ? (
@@ -52,7 +55,7 @@ export default function ProjectsDlg({ show, setShow }: ProjectDlgProps) {
                 setSelectedItem={setSelectedItem}
               />
             ) : (
-              <PortfolioItemDetails item={Projects[selectedItem]} />
+              <PortfolioItemDetails item={Projects[selectedItem]} selectedImage={selectedImage} setSelectedImage={setSelectedImage}/>
             )}
           </div>
         )}

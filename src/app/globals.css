@@ -88,6 +88,23 @@ body:hover::-webkit-scrollbar-thumb {
       transform: scale(1);
     }
   }
+
+  --animate-flow_down: flow_down 3000ms ease-in-out infinite;
+
+  @keyframes flow_down {
+    0% {
+      top: -22.5px;
+    }
+
+    50% {
+      top: 0px;
+    }
+ 
+    100% {
+      top: 22.5px;
+    }
+  }
+
 }
 
 @media (prefers-color-scheme: dark) {
@@ -107,4 +124,12 @@ body {
   user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
+}
+
+.HoverShow {
+    display: none;
+}
+
+.HoverShowTarget:hover .HoverShow{
+    display: block;
 }
