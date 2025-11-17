@@ -39,13 +39,13 @@ export default function PortfolioItemDetails({
         <div className="w-1/3 text-center">Language: {item.language}</div>
       </div>
       <p className="text-white font-bold text-[30px]">Preview:</p>
-      <div className="flex justify-between border-b-[5px] border-b-gray-200">
+      <div className="flex justify-around border-b-[5px] border-b-gray-200">
         <img
           src={`/portfolio/${item.title}/First.png`}
           className="w-[500px] h-[300px] rounded-[50px] my-[40px]"
         />
         <img
-          src={`/portfolio/${item.title}/First.png`}
+          src={`/portfolio/${item.title}/2.png`}
           className="w-[500px] h-[300px] rounded-[50px] my-[40px]"
         />
       </div>

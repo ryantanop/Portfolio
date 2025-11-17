@@ -46,7 +46,7 @@ export default function ApplePage({
           <p className="mx-[10px] px-[5px] cursor-pointer rounded-sm hover:bg-white hover:text-black">
             Contact
           </p>
-          <p className="mx-[10px] px-[5px] cursor-pointer rounded-sm hover:bg-white hover:text-black">
+          <p className="mx-[10px] px-[5px] cursor-pointer rounded-sm hover:bg-white hover:text-black" onClick={() => {setShowProjectDlg(true)}}>
             Projects
           </p>
         </div>
