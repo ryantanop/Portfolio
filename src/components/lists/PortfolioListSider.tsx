@@ -2,7 +2,7 @@ import {
   faStar,
   faFire,
   faMobile,
-  faWebAwesome,
+  faEarth
 } from "@fortawesome/free-solid-svg-icons";
 import ProjectCategoryIcon from "../icons/ProjectCategoryIcon";
 
@@ -12,7 +12,7 @@ interface PortfolioListSiderProps {
 }
 
 export default function PortfolioListSider({selectedCategory, setSelectedCategory}: PortfolioListSiderProps) {
-    return <div className="w-1/12 text-white text-xs">
+    return <div className="w-1/12 text-white text-xs text-[9px] mt-[10px]">
         <ProjectCategoryIcon
           iconDefinition={faStar}
           title="All Projects"
@@ -32,7 +32,7 @@ export default function PortfolioListSider({selectedCategory, setSelectedCategor
           selected={selectedCategory == 3}
         />
         <ProjectCategoryIcon
-          iconDefinition={faWebAwesome}
+          iconDefinition={faEarth}
           title="Web"
           onClick={() => setSelectedCategory(4)}
           selected={selectedCategory == 4}

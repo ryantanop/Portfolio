@@ -13,6 +13,8 @@ export const Projects = [
     popular: true,
     web: true,
     mobile: true,
+    start_date: '2017/7',
+    end_date: '2018/5'
   },
   {
     title: "konaequity",
@@ -28,6 +30,8 @@ export const Projects = [
     web: false,
     mobile: true,
     popular: false,
+    start_date: '2016/2',
+    end_date: '2016/5'
   },
   {
     title: "minimals",
@@ -43,6 +47,8 @@ export const Projects = [
     web: true,
     mobile: true,
     popular: false,
+    start_date: '2020/3',
+    end_date: '2020/7'
   },
   {
     title: "portion",
@@ -58,6 +64,8 @@ export const Projects = [
     popular: true,
     web: true,
     mobile: false,
+    start_date: '2020/7',
+    end_date: '2020/9'
   },
   {
     title: "preloved",
@@ -73,6 +81,8 @@ export const Projects = [
     mobile: true,
     web: false,
     popular: false,
+    start_date: '2022/2',
+    end_date: '2022/7'
   },
   {
     title: "scribbletogether",
@@ -88,6 +98,8 @@ export const Projects = [
     popular: true,
     mobile: true,
     web: false,
+    start_date: '2024/4',
+    end_date: '2024/7'
   },
   {
     title: "selectrealestate",
@@ -103,5 +115,7 @@ export const Projects = [
     popular: true,
     web: true,
     mobile: false,
+    start_date: '2022/2',
+    end_date: '2022/7'
   },
 ];

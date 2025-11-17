@@ -14,7 +14,7 @@ export default function FileIcon({
   invert,
 }: FileIconProps) {
   return (
-    <div className="w-20 h-24 mx-4 my-10">
+    <div className="w-20 h-24 mx-4 my-6">
       <div className="flex w-full h-[60px] justify-center">
         <img
           src={iconUrl}

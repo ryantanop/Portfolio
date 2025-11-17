@@ -26,8 +26,8 @@ export default function PortfolioLists({
   return (
     <div className="flex">
       <PortfolioListSider selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory}/>
-      <div className="flex flex-wrap w-11/12 text-white h-[800px] overflow-y-scroll pr-[30px]">
-        <h1 className="text-[50px] text-white w-full mb-[50px] px-[20px] border-b-[5px] border-gray-200">
+      <div className="flex justify-between flex-wrap w-11/12 text-white h-[740px] overflow-y-scroll pr-[30px] mt-[25px]">
+        <h1 className="text-[28px] text-white w-full mb-[30px] border-b-[2px] border-white/10">
           {captions[selectedCategory]}
         </h1>
         {showProjects.map((val, index) => (

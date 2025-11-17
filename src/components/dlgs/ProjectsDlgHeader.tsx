@@ -23,7 +23,7 @@ export default function ProjectsDlgHeader({
       </div>
       <div className="flex justify-end w-1/2">
         <div
-          className="flex justify-center items-center text-white font-xl w-[50px] h-[30px] bg-red-500 rounded-bl-lg cursor-pointer"
+          className="flex justify-center items-center text-white font-xl w-[50px] h-[30px] hover:bg-red-500 rounded-bl-lg cursor-pointer"
           onClick={() => setShow(false)}
         >
           X

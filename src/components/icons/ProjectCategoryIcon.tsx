@@ -16,13 +16,13 @@ export default function ProjectCategoryIcon({
 }: ProjectCategoryIconProps) {
   return (
     <div
-      className={`${selected ? "text-blue-500" : ""} w-20 h-16 my-8 cursor-pointer`}
+      className={`${selected ? "text-blue-500" : ""} w-18 h-15 my-2 cursor-pointer`}
       onClick={() => onClick()}
     >
       <div className="flex justify-center w-full">
         <FontAwesomeIcon icon={iconDefinition} size="2x" />
       </div>
-      <p className="w-full text-center mt-[20px]">{title}</p>
+      <p className="w-full text-center mt-[10px]">{title}</p>
     </div>
   );
 }

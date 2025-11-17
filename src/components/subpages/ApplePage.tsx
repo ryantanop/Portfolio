@@ -46,7 +46,7 @@ export default function ApplePage({
           <p className="mx-[10px] px-[5px] cursor-pointer rounded-sm hover:bg-white hover:text-black">
             Contact
           </p>
-          <p className="mx-[10px] px-[5px] cursor-pointer rounded-sm hover:bg-white hover:text-black" onClick={() => {setShowProjectDlg(true)}}>
+          <p className="mx-[10px] px-[5px] cursor-pointer rounded-sm hover:bg-white hover:text-black" onClick={() => { setShowProjectDlg(true) }}>
             Projects
           </p>
         </div>
@@ -59,23 +59,32 @@ export default function ApplePage({
         <FileIcon
           iconUrl="/GitHub.png"
           iconName="GitHub"
-          onClick={() => {}}
+          onClick={() => { }}
           invert={true}
         />
         <FileIcon
           iconUrl="/LinkedIn.png"
           iconName="LinkedIn"
-          onClick={() => {}}
+          onClick={() => { }}
           invert={true}
         />
-        <a href="/Resume.pdf" target="_blank">
-          <FileIcon
-            iconUrl="/Resume.png"
-            iconName="Resume"
-            onClick={() => {}}
-            invert={true}
-          />
-        </a>
+        <div className="inline-block cursor-pointer" onClick={() => window.open('/Resume.pdf')}>
+          <div className="w-20 h-24 mx-4">
+            <div className="flex w-full h-[60px] justify-center">
+              <img
+                src={"/Resume.png"}
+                width={60}
+                height={60}
+                className="cursor-pointer invert"
+              />
+            </div>
+            <p
+              className="flex w-full justify-center text-white mt-[10px]"
+            >
+              {"Resume"}
+            </p>
+          </div>
+        </div>
         <FileIcon
           iconUrl="/Win11.png"
           iconName="Windows"
@@ -83,30 +92,30 @@ export default function ApplePage({
           invert={true}
         />
       </div>
-      <div className="flex justify-center items-center absolute left-0 bottom-0 w-full h-[60px]">
-        <div className="flex justify-center items-center p-[2px] rounded-lg backdrop-blur-lg border border-white">
+      <div className="flex justify-center items-center absolute left-0 bottom-0 w-full h-[80px]">
+        <div className="flex justify-center items-center p-[3px] rounded-lg backdrop-blur-lg border border-white">
           <img
             src="/Mac.png"
-            width={40}
-            height={40}
+            width={50}
+            height={50}
             className="cursor-pointer mx-2"
           />
           <img
             src="/MailBox.png"
-            width={40}
-            height={40}
+            width={50}
+            height={50}
             className="cursor-pointer mx-2"
           />
           <img
             src="/Projects.png"
-            width={40}
-            height={40}
+            width={50}
+            height={50}
             className="cursor-pointer mx-2"
           />
           <img
-            src="/Calendar1.png"
-            width={40}
-            height={40}
+            src="/Calendar.png"
+            width={50}
+            height={50}
             className="cursor-pointer mx-2"
           />
         </div>

@@ -1,5 +1,6 @@
 interface PortfolioData {
   title: string;
+  category: string;
 }
 
 interface PortfolioItemInterface {
@@ -12,21 +13,24 @@ export default function PortfolioItem({
   data,
 }: PortfolioItemInterface) {
   return (
-    <div className="w-1/2 cursor-pointer" onClick={() => onClick()}>
-      <div className="flex p-[20px]">
+    <div className="w-11/23 cursor-pointer mb-[100px]" onClick={() => onClick()}>
+      <div className="flex py-[20px]">
         <img
           src={`/portfolio/${data.title}/Logo.png`}
-          width={100}
-          height={100}
-          className="rounded-[30px]"
+          className="w-[50px] h-[50px] rounded-[15px]"
         />
-        <p className="text-white font-bold text-[50px] px-[20px]">
-          {data.title}
-        </p>
+        <div>
+          <p className="text-white text-[20px] px-[20px]">
+            {data.title}
+          </p>
+          <p className="text-[15px] px-[20px] text-white/50 font-thin">
+            {data.category}
+          </p>
+        </div>
       </div>
       <img
         src={`/portfolio/${data.title}/First.png`}
-        className="w-full h-[300px] rounded-[50px] p-[20px]"
+        className="w-full h-[270px] rounded-[20px]"
       />
     </div>
   );
