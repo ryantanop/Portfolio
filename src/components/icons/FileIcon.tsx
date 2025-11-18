@@ -20,7 +20,7 @@ export default function FileIcon({
           src={iconUrl}
           width={60}
           height={60}
-          className={invert ? "cursor-pointer invert" : "cursor-pointer"}
+          className={invert ? "cursor-pointer invert" : "cursor-pointer rounded-2xl"}
           onClick={onClick}
         />
       </div>

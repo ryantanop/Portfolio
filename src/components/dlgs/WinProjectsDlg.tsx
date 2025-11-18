@@ -15,6 +15,14 @@ export default function WinProjectsDlg({ show, setShow }: ProjectDlgProps) {
   const [selectedItem, setSelectedItem] = useState(-1);
   const [loading, setLoading] = useState(false);
   const [selectedImage, setSelectedImage] = useState('-1');
+  const showProjects =
+    selectedCategory == 1
+      ? Projects
+      : selectedCategory == 2
+        ? Projects.filter((val, index) => val.popular)
+        : selectedCategory == 3
+          ? Projects.filter((val, index) => val.mobile)
+          : Projects.filter((val, index) => val.web);
 
   useEffect(() => {
     if (show) {
@@ -27,7 +35,7 @@ export default function WinProjectsDlg({ show, setShow }: ProjectDlgProps) {
   if (!show) return null;
 
   return (
-    <div className="flex justify-center fixed w-screen h-screen">
+    <div className="flex justify-center fixed w-screen h-screen z-50">
       <div className="fixed w-screen h-screen opacity-30 bg-black z-0" />
 
       <div className="w-[1200px] h-7/8 mt-[30px] bg-[rgb(31_31_31)] rounded-xl overflow-hidden z-1 flex items-center justify-center">
@@ -55,7 +63,7 @@ export default function WinProjectsDlg({ show, setShow }: ProjectDlgProps) {
                 setSelectedItem={setSelectedItem}
               />
             ) : (
-              <PortfolioItemDetails item={Projects[selectedItem]} selectedImage={selectedImage} setSelectedImage={setSelectedImage}/>
+              <PortfolioItemDetails item={showProjects[selectedItem]} selectedImage={selectedImage} setSelectedImage={setSelectedImage}/>
             )}
           </div>
         )}

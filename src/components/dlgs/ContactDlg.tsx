@@ -16,7 +16,10 @@ export default function ContactDlg({ show, setShow, setAboutMe }: AboutMeProps) 
                 <div className="w-[13px] h-[13px] rounded-[12px] bg-white/30 mb-[15px] mr-[10px]" />
                 <div className="w-[13px] h-[13px] rounded-[12px] bg-white/30 mb-[15px] mr-[10px]" />
             </div>
-            <div className="mt-[80px] flex w-full justify-center text-white">
+            <div className="flex justify-center w-full text-white text-[18px] mt-[8px]">
+                Contact
+            </div>
+            <div className="mt-[30px] flex w-full justify-center text-white">
                 <img src='/loi.png' className="w-[70px] h-[70px]" />
                 <div className="ml-[30px]">
                     <p className="text-[20px]">Loi Nguyen</p>

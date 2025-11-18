@@ -28,7 +28,7 @@ export default function ProjectsDlgHeader({
       <div className="flex justify-end w-1/2">
         <div
           className="flex justify-center items-center text-white font-xl w-[50px] h-[30px] hover:bg-red-500 rounded-bl-lg cursor-pointer"
-          onClick={() => setShow(false)}
+          onClick={() => {setShow(false), setSelectedImage('-1'), setSelectedItem(-1)}}
         >
           X
         </div>

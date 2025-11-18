@@ -1,7 +1,7 @@
 'use client'
 import FileIcon from "../icons/FileIcon";
 import WinProjectsDlg from "@/components/dlgs/WinProjectsDlg";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import StartupMenu from "../dlgs/StartupMenu";
 
 type PortfolioItem = {
@@ -10,21 +10,43 @@ type PortfolioItem = {
   description?: string;
 };
 
+interface Weather {
+  temperature: number;
+  windspeed: number;
+  winddirection: number;
+  weathercode: number;
+  time: string;
+}
+
 interface ApplePageProps {
   setWindowPos: React.Dispatch<React.SetStateAction<number>>;
   windowToggle: number;
   setWindowToggle: React.Dispatch<React.SetStateAction<number>>;
-  projectData: PortfolioItem[];
+  weather: Weather | null
+  city: string
+  weatherCondition: string
+
 }
 
 export default function Win11Page({
   setWindowPos,
   windowToggle,
   setWindowToggle,
-  projectData,
+  weather,
+  weatherCondition,
+  city
+
 }: ApplePageProps) {
   const [showProjectDlg, setShowProjectDlg] = useState(false);
   const [showStartupMenu, setShowStartupMenu] = useState(false);
+  const [time, setTime] = useState("");
+
+  useEffect(() => {
+    const tick = () => setTime(new Date().toLocaleTimeString());
+    tick(); // initial time
+    const interval = setInterval(tick, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   const ToggleWindow = () => {
     let intervalId = setInterval(() => {
@@ -41,7 +63,7 @@ export default function Win11Page({
 
   return (
     <div className="relative top-0 w-screen h-screen animate-start1">
-      <div className="absolute left-0 top-0 bg-[url('/windows.jpeg')] bg-cover bg-center w-screen h-screen">
+      <div className="absolute left-0 top-0 bg-[url('/windows.jpeg')] bg-cover bg-center w-screen h-screen p-[18px]">
         <FileIcon
           iconUrl="/Projects.png"
           iconName="Projects"
@@ -114,17 +136,10 @@ export default function Win11Page({
             className="cursor-pointer mx-2"
           />
         </a>
-        <p className="fixed bottom-[15px] right-[10px] text-white">{new Date().toLocaleTimeString()}</p>
-      </div>
-      <div className="fixed left-0 bottom-[75px] w-full h-[25px] flex justify-center">
-        <div className="flex text-[15px] items-center w-[150px] h-[25px] border border-white/70 rounded-4xl text-white overflow-hidden">
-          <img src='/Projects.png' width={20} height={20} className="ml-[5px]"/>
-          <p className="ml-[3px] mr-[5px]">Made with </p>
-          <div className="animate-flow_down relative">
-            <p>Care</p>
-            <p>Love</p>
-            <p>Next.js</p>
-          </div>
+        <p className="fixed bottom-[15px] right-[10px] text-white">{time}</p>
+        <div className="fixed bottom-[5px] left-[20px] text-white">
+          <p>{weather?.temperature+'°'}</p>
+          <p>{weatherCondition}</p>
         </div>
       </div>
       <WinProjectsDlg show={showProjectDlg} setShow={setShowProjectDlg} />
