@@ -12,7 +12,9 @@ export default function ContactDlg({ show, setShow, setAboutMe }: AboutMeProps) 
         <div className="fixed w-screen h-screen opacity-30 bg-black z-0" />
         <div className="relative w-[500px] h-1/2 mt-[200px] bg-[rgb(31_31_31)] rounded-xl overflow-hidden z-1">
             <div className="absolute left-[15px] top-[15px] flex w-full">
-                <div className="w-[13px] h-[13px] rounded-[12px] bg-red-700 mb-[15px] mr-[10px]" onClick={() => setShow(false)} />
+                <div className="flex justify-center items-center font-bold text-[10px] w-[13px] h-[13px] rounded-[12px] bg-red-700 mb-[15px] mr-[10px] HoverShowTarget" onClick={() => setShow(false)}>
+                    <p className="HoverShow text-black/60">X</p>
+                </div>
                 <div className="w-[13px] h-[13px] rounded-[12px] bg-white/30 mb-[15px] mr-[10px]" />
                 <div className="w-[13px] h-[13px] rounded-[12px] bg-white/30 mb-[15px] mr-[10px]" />
             </div>
@@ -26,8 +28,14 @@ export default function ContactDlg({ show, setShow, setAboutMe }: AboutMeProps) 
                     <p className="text-[15px]">Senior Software Engineer</p>
                 </div>
             </div>
-            <div className="w-full px-[50px] mt-[120px]">
-                <div className="px-[20px] flex w-full text-white py-[10px]">
+            <div className="flex w-full px-[70px] justify-around my-[40px]">
+                <img src='/phone1.png' width={40} height={40} className="rounded-full cursor-pointer"/>
+                <img src='/email1.png' width={40} height={40} className="rounded-full cursor-pointer"/>
+                <img src='/web1.png' width={40} height={40} className="rounded-full cursor-pointer"/>
+                <img src='/share1.png' width={40} height={40} className="rounded-full cursor-pointer"/>
+            </div>
+            <div className="w-full px-[50px]">
+                <div className="px-[20px] flex w-full text-white py-[10px] cursor-pointer hover:bg-white/10">
                     <div className="w-1/3">
                         Phone:
                     </div>
@@ -38,7 +46,7 @@ export default function ContactDlg({ show, setShow, setAboutMe }: AboutMeProps) 
                 <div className="w-full h-[1px] px-[10px]">
                     <div className="w-full h-full bg-white/50"></div>
                 </div>
-                <div className="px-[20px] flex w-full text-white py-[10px]">
+                <div className="px-[20px] flex w-full text-white py-[10px] cursor-pointer hover:bg-white/10">
                     <div className="w-1/3">
                         Email:
                     </div>
@@ -49,7 +57,7 @@ export default function ContactDlg({ show, setShow, setAboutMe }: AboutMeProps) 
                 <div className="w-full h-[1px] px-[10px]">
                     <div className="w-full h-full bg-white/50"></div>
                 </div>
-                <div className="px-[20px] flex w-full text-white py-[10px]">
+                <div className="px-[20px] flex w-full text-white py-[10px] cursor-pointer hover:bg-white/10">
                     <div className="w-1/3">
                         LinkedIn:
                     </div>

@@ -1,7 +1,8 @@
 'use client'
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
 import FileIcon from "../icons/FileIcon";
 import WinProjectsDlg from "@/components/dlgs/WinProjectsDlg";
-import { useState, useEffect } from "react";
 import StartupMenu from "../dlgs/StartupMenu";
 
 type PortfolioItem = {
@@ -40,6 +41,15 @@ export default function Win11Page({
   const [showProjectDlg, setShowProjectDlg] = useState(false);
   const [showStartupMenu, setShowStartupMenu] = useState(false);
   const [time, setTime] = useState("");
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setVisible(true);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const tick = () => setTime(new Date().toLocaleTimeString());
@@ -63,7 +73,7 @@ export default function Win11Page({
 
   return (
     <div className="relative top-0 w-screen h-screen animate-start1">
-      <div className="absolute left-0 top-0 bg-[url('/windows.jpeg')] bg-cover bg-center w-screen h-screen p-[18px]">
+      <div className="absolute left-0 top-0 bg-[url('/windows.jpeg')] bg-cover bg-center w-screen h-screen px-[18px] py-[30px]">
         <FileIcon
           iconUrl="/Projects.png"
           iconName="Projects"
@@ -84,7 +94,7 @@ export default function Win11Page({
         />
         <div className="inline-block cursor-pointer" onClick={() => window.open('/Resume.pdf')}>
           <div className="w-20 h-24 mx-4">
-            <div className="flex w-full h-[60px] justify-center">
+            <div className="flex w-full justify-center">
               <img
                 src={"/Resume.png"}
                 width={60}
@@ -99,7 +109,7 @@ export default function Win11Page({
           </div>
         </div>
         <FileIcon
-          iconUrl="/mac.png"
+          iconUrl="/Apple1.jpg"
           iconName="Apple"
           onClick={() => ToggleWindow()}
           invert={false}
@@ -138,7 +148,7 @@ export default function Win11Page({
         </a>
         <p className="fixed bottom-[15px] right-[10px] text-white">{time}</p>
         <div className="fixed bottom-[5px] left-[20px] text-white">
-          <p>{weather?.temperature+'°'}</p>
+          <p>{weather?.temperature + '°'}</p>
           <p>{weatherCondition}</p>
         </div>
       </div>
@@ -147,6 +157,47 @@ export default function Win11Page({
         open={showStartupMenu}
         setClose={() => setShowStartupMenu(false)}
       />
+      <div className="absolute left-0 bottom-[62px] w-full h-[25px] flex justify-center">
+        <div className="flex text-[14px] text-white/90 items-center w-[150px] h-[25px] border border-white/70 rounded-4xl text-white overflow-hidden">
+          <img src='/Projects.png' width={20} height={20} className="ml-[5px]" />
+          <p className="ml-[3px] mr-[5px]">Made with </p>
+          <div className="animate-flow_down relative text-white font-bold">
+            <p>Care</p>
+            <p>Love</p>
+            <p>Next.js</p>
+          </div>
+        </div>
+      </div>
+      <AnimatePresence>
+        {visible && (
+          <motion.div
+            initial={{ x: 500, opacity: 0 }}     // start off-screen to the right
+            animate={{ x: 0, opacity: 1 }}       // slide into place
+            exit={{ x: 500, opacity: 0 }}        // slide out to the right
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="flex items-center absolute right-[30px] bottom-[90px] 
+                     w-[400px] h-[67px] bg-gray-200/5 rounded-[10px] 
+                     border border-white/10 text-white text-[15px]"
+            onClick={() => setVisible(false)}
+          >
+            <div className="ml-[10px] w-3/4">
+              <p>Did you know?</p>
+              <p className="text-[14px] text-white/80">
+                This portfolio will also look great on mobile
+              </p>
+            </div>
+            <div className="flex justify-center items-center w-1/4">
+              <button
+                onClick={() => setVisible(false)}
+                className="flex justify-center items-center bg-blue-500/30 
+                         w-[60px] h-[30px] rounded-lg text-white/70 cursor-pointer"
+              >
+                OK
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 

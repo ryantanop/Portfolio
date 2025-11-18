@@ -1,5 +1,0 @@
-Total Screen width 1880px
-The project dlg width 1200 px
-Project dlg project icon width height 50px
-Project dlg project big button width 520px height 270px rounded 20px
-Project Details page Icon image width height 100px

@@ -4,7 +4,9 @@ import {
   faCalendar,
   faBuilding,
   faGlobe,
-  faFolder
+  faFolder,
+  faStepBackward,
+  faStepForward
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -26,8 +28,8 @@ interface PortfolioItemData {
 
 interface PortfolioItemDetailsProps {
   item: PortfolioItemData;
-  selectedImage: string;
-  setSelectedImage: React.Dispatch<React.SetStateAction<string>>;
+  selectedImage: number;
+  setSelectedImage: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export default function PortfolioItemDetails({
@@ -36,14 +38,16 @@ export default function PortfolioItemDetails({
   setSelectedImage
 }: PortfolioItemDetailsProps) {
 
-  if (selectedImage != '-1') {
-    return <div className="flex justify-center items-center w-full h-full">
+  if (selectedImage != -1) {
+    return <div className="flex justify-between text-[20px] items-center w-full h-full">
+      <FontAwesomeIcon icon={faStepBackward} className="text-white cursor-pointer" onClick={() => setSelectedImage(selectedImage == 2 ? 1 : 2)} />
       <img
-        src={`/portfolio/${item.title}/${selectedImage}`}
+        src={`/portfolio/${item.title}/${selectedImage}.png`}
         width={1000}
         height={1000}
         className="rounded-[30px]"
       />
+      <FontAwesomeIcon icon={faStepForward} className="text-white cursor-pointer" onClick={() => setSelectedImage(selectedImage == 2 ? 1 : 2)}/>
     </div>
   }
 
@@ -91,14 +95,14 @@ export default function PortfolioItemDetails({
       <p className="text-white font-bold text-[30px] my-[20px]">Preview:</p>
       <div className="flex justify-around border-b-[2px] border-white/10">
         <img
-          src={`/portfolio/${item.title}/First.png`}
+          src={`/portfolio/${item.title}/1.png`}
           className="w-[500px] h-[300px] rounded-[50px] my-[40px] cursor-pointer"
-          onClick={() => setSelectedImage('First.png')}
+          onClick={() => setSelectedImage(1)}
         />
         <img
           src={`/portfolio/${item.title}/2.png`}
           className="w-[500px] h-[300px] rounded-[50px] my-[40px] cursor-pointer"
-          onClick={() => setSelectedImage('2.png')}
+          onClick={() => setSelectedImage(2)}
         />
       </div>
       <p className="text-white text-[18px] py-[20px] border-b-[2px] border-white/10">

@@ -4,6 +4,7 @@ import { Projects } from "../../static_data/Projects";
 import PortfolioItemDetails from "../items/PortfolioItemDetails";
 import PortfolioLists from "../lists/PortfolioLists";
 import ProjectsDlgHeader from "./ProjectsDlgHeader";
+import PortfolioListSider from "../lists/PortfolioListSider";
 
 interface ProjectDlgProps {
   show: boolean;
@@ -14,7 +15,7 @@ export default function WinProjectsDlg({ show, setShow }: ProjectDlgProps) {
   const [selectedCategory, setSelectedCategory] = useState(1);
   const [selectedItem, setSelectedItem] = useState(-1);
   const [loading, setLoading] = useState(false);
-  const [selectedImage, setSelectedImage] = useState('-1');
+  const [selectedImage, setSelectedImage] = useState(-1);
   const showProjects =
     selectedCategory == 1
       ? Projects
@@ -41,7 +42,7 @@ export default function WinProjectsDlg({ show, setShow }: ProjectDlgProps) {
       <div className="w-[1200px] h-7/8 mt-[30px] bg-[rgb(31_31_31)] rounded-xl overflow-hidden z-1 flex items-center justify-center">
         {loading ? (
           <div className="w-[100px]">
-            <img src='/store.png' className="w-[100px] h-[100px] mb-[50px]"/>
+            <img src='/store.png' className="w-[100px] h-[100px] mb-[50px]" />
             <div className="w-full flex justify-center">
               <div className="animate-spin rounded-full h-6 w-6 border-4 border-gray-400 border-t-transparent" />
             </div>
@@ -57,13 +58,18 @@ export default function WinProjectsDlg({ show, setShow }: ProjectDlgProps) {
             />
 
             {selectedItem === -1 ? (
-              <PortfolioLists
-                selectedCategory={selectedCategory}
-                setSelectedCategory={setSelectedCategory}
-                setSelectedItem={setSelectedItem}
-              />
+              <div className="flex">
+                <PortfolioListSider selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
+                <div className="w-11/12 h-[780px]">
+                  <PortfolioLists
+                    selectedCategory={selectedCategory}
+                    setSelectedCategory={setSelectedCategory}
+                    setSelectedItem={setSelectedItem}
+                  />
+                </div>
+              </div>
             ) : (
-              <PortfolioItemDetails item={showProjects[selectedItem]} selectedImage={selectedImage} setSelectedImage={setSelectedImage}/>
+              <PortfolioItemDetails item={showProjects[selectedItem]} selectedImage={selectedImage} setSelectedImage={setSelectedImage} />
             )}
           </div>
         )}

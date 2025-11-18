@@ -15,7 +15,9 @@ export default function AboutMe({ show, setShow, setShowProjects, setShowContact
                 About Me
             </div>
             <div className="absolute left-[15px] top-[15px] flex w-full">
-                <div className="w-[13px] h-[13px] rounded-[12px] bg-red-700 mb-[15px] mr-[10px]" onClick={() => setShow(false)} />
+                <div className="flex justify-center items-center font-bold text-[10px] w-[13px] h-[13px] rounded-[12px] bg-red-700 mb-[15px] mr-[10px] HoverShowTarget" onClick={() => setShow(false)}>
+                    <p className="HoverShow text-black/60">X</p>
+                </div>
                 <div className="w-[13px] h-[13px] rounded-[12px] bg-white/30 mb-[15px] mr-[10px]" />
                 <div className="w-[13px] h-[13px] rounded-[12px] bg-white/30 mb-[15px] mr-[10px]" />
             </div>

@@ -94,17 +94,6 @@ export default function Portfolio() {
         weatherCondition={weatherCondition}
         city={city}
       />
-      <div className="fixed left-0 bottom-[75px] w-full h-[25px] flex justify-center">
-        <div className="flex text-[14px] text-white/90 items-center w-[150px] h-[25px] border border-white/70 rounded-4xl text-white overflow-hidden">
-          <img src='/Projects.png' width={20} height={20} className="ml-[5px]" />
-          <p className="ml-[3px] mr-[5px]">Made with </p>
-          <div className="animate-flow_down relative text-white font-bold">
-            <p>Care</p>
-            <p>Love</p>
-            <p>Next.js</p>
-          </div>
-        </div>
-      </div>
       <div className="fixed top-0 left-0 w-screen h-screen flex justify-center items-center bg-black animate-wiggle">
         <img
           src="/Win11.png"

@@ -14,12 +14,12 @@ export default function FileIcon({
   invert,
 }: FileIconProps) {
   return (
-    <div className="w-20 h-24 mx-4 my-6">
-      <div className="flex w-full h-[60px] justify-center">
+    <div className="w-20 h-24 mx-4 my-4">
+      <div className="flex w-full justify-center">
         <img
           src={iconUrl}
-          width={60}
-          height={60}
+          width={55}
+          height={55}
           className={invert ? "cursor-pointer invert" : "cursor-pointer rounded-2xl"}
           onClick={onClick}
         />

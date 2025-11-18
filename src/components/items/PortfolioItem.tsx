@@ -29,7 +29,7 @@ export default function PortfolioItem({
         </div>
       </div>
       <img
-        src={`/portfolio/${data.title}/First.png`}
+        src={`/portfolio/${data.title}/1.png`}
         className="w-full h-[270px] rounded-[20px]"
       />
     </div>
